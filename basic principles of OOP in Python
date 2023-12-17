@@ -1,0 +1,34 @@
+class Car:
+    def __init__(self, make, model, year):
+        self.make = make
+        self.model = model
+        self.year = year
+        self.odometer_reading = 0
+
+    def get_descriptive_name(self):
+        return f"{self.year} {self.make} {self.model}"
+
+    def read_odometer(self):
+        print(f"This car has {self.odometer_reading} miles on it.")
+
+    def update_odometer(self, mileage):
+        if mileage >= self.odometer_reading:
+            self.odometer_reading = mileage
+        else:
+            print("You can't roll back an odometer!")
+
+    def increment_odometer(self, miles):
+        self.odometer_reading += miles
+
+
+# Creating instances (objects) of the Car class
+car1 = Car('Ford', 'Mustang', 2022)
+car2 = Car('Tesla', 'Model S', 2023)
+
+# Accessing attributes and calling methods
+print(car1.get_descriptive_name())
+car1.read_odometer()
+
+car2.update_odometer(500)
+car2.increment_odometer(100)
+car2.read_odometer()
